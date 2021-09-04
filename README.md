@@ -3,10 +3,15 @@ This is the pytorch implementation  for ["Deep Vessel Segmentation by Learning G
 
 
 ## Dependency
+
 * python3 
 * pytorch 1.5
+* scikit-fmm              0.0.9
+* scikit-image            0.14.2
+* scikit-learn            0.22.2
 
 ## Datasets
+
 * The VGN is evaluated on four retinal image datasets, namely the [DRIVE](https://www.isi.uu.nl/Research/Databases/DRIVE/), [STARE](http://cecas.clemson.edu/~ahoover/stare/), [CHASE_DB1](https://blogs.kingston.ac.uk/retinal/chasedb1/), and [HRF](https://www5.cs.fau.de/research/data/fundus-images/) datasets, which all are publicly available.
 * The coronary artery X-ray angiography (CA-XRA) dataset we additionally used for evaluation can not be shared regrettably.
 
@@ -14,8 +19,8 @@ This is the pytorch implementation  for ["Deep Vessel Segmentation by Learning G
 We provide precomputed results of the VGN on the four retinal image datasets. [[OneDrive]](https://1drv.ms/u/s!AmnLATyiwjphhZ0BquyksorE0YV7nA?e=OmHhGW)
 
 
-
 ## Training a Model
+
 We use a sequential training scheme composed of an initial pretraining of the CNN followed by joint training, including fine-tuning of the CNN module, of the whole VGN. Before the joint training, training graphs must be constructed from vessel probability maps inferred from the pretrained CNN.
 
 ### CNN Pretraining
@@ -37,15 +42,22 @@ python train_VGN.py
 ```
 
 ## Testing a Model
-1. Download available trained models. [[OneDrive]](https://1drv.ms/u/s!AmnLATyiwjphhZ0CYhSYOqHmnQw4UQ?e=eRgvcq)
-2. Run a test script among `test_CNN.py`, `test_VGN.py`, , with appropriate input arguments including the path for the downloaded model.
+
+Run a test script among `test_CNN.py`, `test_VGN.py`
 
 ## Demo Results
+
 Two example results
++ CNN results
+
 ![](cnn_result/01_test_gt.png)
+
 ![](cnn_result/01_test_pred.png)
 
++ VGN results
+
 ![](vgn_result/01_test_gt.png)
+
 ![](vgn_result/01_test_pred.png)
 
 ## Citation
